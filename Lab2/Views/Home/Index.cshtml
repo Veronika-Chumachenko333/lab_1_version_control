@@ -1,0 +1,60 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="container mt-5">
+    <h1 class="text-center mb-4">Welcome to Odesa!</h1>
+    <p class="text-center text-muted mb-5">
+        Відкрий для себе чарівність Одеси — від історичних пам'яток до морського бризу!
+    </p>
+
+    <!-- Додаємо інформацію про авторизацію -->
+    @if (!User.Identity.IsAuthenticated)
+    {
+        <div class="alert alert-info text-center">
+            <h4>Система користувачів</h4>
+            <p>Зареєструйтесь або увійдіть для доступу до додаткових функцій!</p>
+            <div class="mt-2">
+                <a href="/Identity/Account/Register" class="btn btn-success">Реєстрація</a>
+                <a href="/Identity/Account/Login" class="btn btn-primary">Вхід</a>
+            </div>
+        </div>
+    }
+    else
+    {
+        <div class="alert alert-success text-center">
+            <h4>Вітаємо, @User.Identity.Name!</h4>
+            <p>Ви успішно авторизовані в системі.</p>
+        </div>
+    }
+
+    <div class="row">
+        <!-- №1 -->
+        <div class="col-sm-12 col-md-6 col-lg-4 text-center mb-4">
+            <img src="~/pictures/pamyatky.jpg" class="img-fluid rounded mb-3" style="height:250px; width:100%; object-fit:cover;" alt="Фото 1">
+            <h3>Пам'ятки.</h3>
+            <p>Відкрий для себе архітектурні шедеври, історичні локації та знакові місця.</p>
+        </div>
+
+        <!-- №2 -->
+        <div class="col-sm-12 col-md-6 col-lg-4 text-center mb-4">
+            <img src="~/pictures/restoran.jpg" class="img-fluid rounded mb-3" style="height:250px; width:100%; object-fit:cover;" alt="Фото 2">
+            <h3>Ресторани, кафе та забігаловки.</h3>
+            <p>Скуштуй вишукані страви та автентичні смаки Одеси.</p>
+        </div>
+
+        <!-- №3 -->
+        <div class="col-sm-12 col-md-6 col-lg-4 text-center mb-4">
+            <img src="~/pictures/rozvagy.jpg" class="img-fluid rounded mb-3"  style="height:250px; width:100%; object-fit:cover;"alt="Фото 3">
+            <h3>Розваги.</h3>
+            <p>Від нічного життя до парків і пляжів для всієї родини.</p>
+        </div>
+
+        <!-- №4 -->
+        <div class="col-sm-12 col-md-6 col-lg-4 text-center mb-4">
+            <a asp-controller="Resolve" asp-action="Index" class="btn btn-primary">
+                Замовити екскурсію (Resolve) -> 
+            </a>
+        </div>
+    </div>
+</div>

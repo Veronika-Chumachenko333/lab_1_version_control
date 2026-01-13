@@ -1,0 +1,47 @@
+﻿@{
+    ViewData["Title"] = "Екскурсії по Одесі";
+}
+
+<div class="container mt-5">
+    <h1 class="text-center mb-4">Екскурсії по Одесі</h1>
+
+    <div class="row align-items-center mb-5">
+        <div class="col-lg-6 mb-4">
+            <img src="~/pictures/pamyatky.jpg" class="img-fluid rounded shadow" alt="Одеса">
+        </div>
+        <div class="col-lg-6">
+            <h3>Замовити екскурсію</h3>
+            <p>Заповніть коротку форму, і наш гід зв’яжеться з вами.
+            <form method="post" asp-action="SubmitForm" asp-controller="Resolve">
+                <div class="mb-3">
+                    <label for="name" class="form-label">Ваше ім’я</label>
+                    <input type="text" class="form-control" id="name" name="name" placeholder="Введіть ім’я" required>
+                </div>
+
+                <div class="mb-3">
+                    <label for="email" class="form-label">Електронна пошта</label>
+                    <input type="email" class="form-control" id="email" name="email" placeholder="example@gmail.com" required>
+                </div>
+
+                <div class="mb-3">
+                    <label for="tourType" class="form-label">Оберіть тип екскурсії</label>
+                    <select class="form-select" id="tourType" name="tourType" required>
+                        <option value="">-- Оберіть варіант --</option>
+                        <option>Пішохідна по центру</option>
+                        <option>Морська прогулянка</option>
+                        <option>Одеса з висоти (оглядові майданчики)</option>
+                        <option>Історична Одеса</option>
+                    </select>
+                </div>
+
+                <button type="submit" class="btn btn-primary w-100">Надіслати запит</button>
+            </form>
+        </div>
+    </div>
+
+    <div class="text-center mt-4">
+        <a asp-controller="Home" asp-action="Index" class="btn btn-outline-secondary">
+           <- Повернутися на головну сторінку
+        </a>
+    </div>
+</div>

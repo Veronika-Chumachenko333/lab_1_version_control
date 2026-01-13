@@ -1,0 +1,37 @@
+﻿@model IEnumerable<User>
+
+@{
+    ViewData["Title"] = "Користувачі";
+}
+
+<h1>Список користувачів</h1>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Ім'я користувача</th>
+            <th>Email</th>
+            <th>Телефон</th>
+            <th>Заблоковано до</th>
+            <th>Невдалих спроб входу</th>
+            <th>Блокування увімкнено</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var user in Model)
+        {
+            <tr>
+                <td>@user.Id</td>
+                <td>@user.UserName</td>
+                <td>@user.Email</td>
+                <td>@user.PhoneNumber</td>
+                <td>@user.LockoutEnd</td>
+                <td>@user.AccessFailedCount</td>
+                <td>@user.LockoutEnabled</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<a href="/Identity/Account/Register" class="btn btn-primary">Додати нового користувача</a>
