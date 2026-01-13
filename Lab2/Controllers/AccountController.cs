@@ -7,10 +7,10 @@ namespace Lab2.Controllers
 {
     public class AccountController : Controller
     {
-        private readonly UserManager<User> _userManager;
-        private readonly SignInManager<User> _signInManager;
+        private readonly UserManager<IdentityUser> _userManager;
+        private readonly SignInManager<IdentityUser> _signInManager;
 
-        public AccountController(UserManager<User> userManager, SignInManager<User> signInManager)
+        public AccountController(UserManager<IdentityUser> userManager, SignInManager<IdentityUser> signInManager)
         {
             _userManager = userManager;
             _signInManager = signInManager;
@@ -27,11 +27,11 @@ namespace Lab2.Controllers
         {
             if (ModelState.IsValid)
             {
-                var user = new User
+                var user = new IdentityUser
                 {
                     UserName = model.Email,
                     Email = model.Email,
-                    FullName = model.FullName
+                    PhoneNumber = "0000000000"
                 };
 
                 var result = await _userManager.CreateAsync(user, model.Password);

@@ -24,7 +24,7 @@ namespace Lab2.Controllers
         public async Task<IActionResult> Index()
         {
             var users = await _userManager.Users
-                .Select(u => new User
+                .Select(u => new IdentityUser
                 {
                     Id = u.Id,
                     UserName = u.UserName,

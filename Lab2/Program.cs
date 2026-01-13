@@ -1,7 +1,7 @@
 using Lab2.Data;
 using Lab2.Services;
-using Lab5_Identity.Data;
-using Lab5_Identity.Services;
+//using Lab5_Identity.Data;
+//using Lab5_Identity.Services;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
@@ -23,6 +23,11 @@ builder.Services.AddDefaultIdentity<IdentityUser>(options =>
 .AddEntityFrameworkStores<ApplicationDbContext>();
 
 builder.Services.AddControllersWithViews();
+
+//підключення БД
+//string connection = "Server=(localdb)\\mssqllocaldb;Database=TravelOdesa;Trusted_Connection=true;";
+//builder.Services.AddDbContext<ApplicationDbContext>(options =>
+    //options.UseSqlServer(connection));
 
 var app = builder.Build();
 
